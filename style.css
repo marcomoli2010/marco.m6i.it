@@ -1,0 +1,41 @@
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  color: rgb(0, 140, 255);
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+} 
+
+#introduction {
+  margin-bottom: 60px;
+}
+
+#artist-main {
+  color: rgb(0, 140, 255);
+}
+
+.artist {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+a {
+  color: rgb(0, 140, 255);
+}
+
+img {
+  width: 200px;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 15px;
+  filter: grayscale(100%);
+}
