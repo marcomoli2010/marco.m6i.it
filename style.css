@@ -1,8 +1,6 @@
 
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
+
 
 h1 {
   color: rgb(0, 140, 255);
@@ -33,7 +31,6 @@ a {
 }
 
 img {
-  width: 200px;
   border-radius: 8px;
   display: block;
   margin-bottom: 15px;
