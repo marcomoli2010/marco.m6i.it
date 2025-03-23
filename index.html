@@ -117,8 +117,18 @@
   </div>
 
   <script>
+    // get list of songs from soundcloud
+
+    const soundcloudUrl = 'https://soundcloud.com/marco-molinari-380237812/sets/trap-02';
+    const soundcloudApiUrl = 'https://soundcloud.com/marco-molinari-380237812/sets/trap-02/tracks'; 
+    const soundcloudApiKey = '2044774524';
+
+    fetch(soundcloudApiUrl)
+      .then(response => response.json())
+      .then(data => console.log(data));
+
     const songsDiv = document.querySelector('.songs');
-    const songTemplate = '<iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{trackId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/marco-molinari-380237812" title="MarcoMoli" target="_blank" style="color: #cccccc; text-decoration: none;">MarcoMoli</a> · <a href="https://soundcloud.com/marco-molinari-380237812/trap-02" title="Trap 02" target="_blank" style="color: #cccccc; text-decoration: none;">{title}</a></div>'
+    const songTemplate = '<iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{trackId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/marco-molinari-380237812" title="MarcoMoli" target="_blank" style="color: #cccccc; text-decoration: none;">MarcoMoli</a> · <a href="https://soundcloud.com/marco-molinari-380237812/{title}" title="{title}" target="_blank" style="color: #cccccc; text-decoration: none;">{title}</a></div>'
     const songs = [
       {
         title: 'We tellin them',
@@ -140,8 +150,8 @@
     songs.forEach(song => {
       const songElement = document.createElement('div');
       songElement.innerHTML = songTemplate
-        .replace('{title}', song.title)
-        .replace('{trackId}', song.trackId);
+        .replaceAll('{title}', song.title)
+        .replaceAll('{trackId}', song.trackId);
       songsDiv.appendChild(songElement);
     });
   </script>
